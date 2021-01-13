@@ -93,8 +93,6 @@ module Geokit
       rescue TooManyQueriesError, GeocodeError, AccessDeniedError
         raise
       rescue => e
-        logger.error "Caught an error during #{provider_name} geocoding call: #{$!}"
-        logger.error e.backtrace.join("\n")
         GeoLoc.new
       end
       # Main method which calls the do_reverse_geocode template method which subclasses
